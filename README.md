@@ -2,6 +2,8 @@
 <img src="https://i.loli.net/2018/08/06/5b6844efb1974.png" width = "400" height = "250" alt="vue-logo.png" align=center />
 </div>
 
+***
+
 ## 技术栈
 
 前端： vue2  +  vuex  +  vue-cli + ES6/7 + axios + stylus 
@@ -48,7 +50,6 @@
 ├── package.json //项目的基本信息
 ├── src //vue文件
 └── static //静态资源（图片相关）
-
 ```
 
 #### src结构
