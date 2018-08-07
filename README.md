@@ -95,6 +95,7 @@ src
 为了根据不同运行环境加载不同配置，在根目录中添加config目录,在config目录下添加 test.js development.js  production.js  index.js
 </br>
 		    **index.js**
+		    
 ```javascript
 const development_env = require('./development')
 const production_env = require('./production')
@@ -111,6 +112,7 @@ module.exports = configs[process.env.NODE_ENV || 'development']
 分离**接口层**和**逻辑层**。
 创建app目录，根据请求类型，分类好逻辑层API
 接口层统一创建在routes路由下。
+
 
 ```javascript
 // routes/api/homePage.js
@@ -129,9 +131,11 @@ router
 
 module.exports = router
 ```
+
 </br>
 通过**index.js**统一导出路由
 </br>
+
 ```javascript
 const router = require('koa-router')()
 const homePage = require('./homePage')
@@ -140,6 +144,7 @@ router.use('/home', homePage.routes(), homePage.allowedMethods())
 
 module.exports = router
 ```
+
 目前是三级路由，/api,/home,/honePage。
 </br>**资源符定位资源，HTTP动词描述操作，状态码表示结果。**
 
@@ -160,6 +165,7 @@ module.exports = router
 前后端都部署在阿里云的虚拟机上，由于没有用node,渲染页面，所以分开部署node和打包后的dist
 
 `前端`如果需要本地预览，可以修改`webpack.base.conf.js`
+
 ```javascript
 output: {
     path: config.build.assetsRoot,
@@ -167,17 +173,21 @@ output: {
     filename: '[name].js'
 }
 ```
+
 这样生产相对资源路径，可以直接访问。如果线上发布，则直接打包即可。
 
 `后端`node.js 通过 `forever`把进程挂在服务器上。
+
 ```shell
 cd node.js路径
 NODE_ENV = production forever start ./bin/www
 ```
+
 通过 `forever list` 可以查看是否成功...
 
 #### `nginx服务器配置`
 修改 nginx.conf
+
 ```shell
 server {
 	listen xx #端口
