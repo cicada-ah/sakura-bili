@@ -1,4 +1,7 @@
-<img src="https://i.loli.net/2018/08/06/5b6844efb1974.png" width = "300" height = "200" alt="vue-logo.png" align=center />
+<div align="center">
+<img src="https://i.loli.net/2018/08/06/5b6844efb1974.png" width = "400" height = "250" alt="vue-logo.png" align=center />
+</div>
+
 ## 技术栈
 
 前端： vue2  +  vuex  +  vue-cli + ES6/7 + axios + stylus 
