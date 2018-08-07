@@ -1,6 +1,7 @@
 ![vue-logo.png](https://i.loli.net/2018/08/06/5b6844efb1974.png)
+
 ## 技术栈
----
+
 前端： vue2  +  vuex  +  vue-cli + ES6/7 + axios + stylus 
 
 后端: koa2 + koa2-plugin + restfulApi + axios
@@ -12,7 +13,7 @@
 
 
 ## 说明
----
+
 >  开发环境 ubuntu 18.04 chrome nodejs 8+
 
 >  这个项目主要是用于学习vue全家桶, 前后端开发流程及线上部署.
@@ -21,7 +22,7 @@
 
 
 ## 项目描述
----
+
 ### 前端部分
 
 #### 项目结构
@@ -101,7 +102,7 @@ const configs = {
 module.exports = configs[process.env.NODE_ENV || 'development']
 ```
 #### 为API接口配置路由
----
+
 分离**接口层**和**逻辑层**。
 创建app目录，根据请求类型，分类好逻辑层API
 接口层统一创建在routes路由下。
@@ -231,3 +232,19 @@ server {
 1. 图片是从官方api接口获取，会限制请求来源。可以通过如下几种办法。
     1. 服务器端去请求，在从服务器端获取。
     2. 设置< head > 的 < meta > 为 no-referer 隐藏请求源。
+    
+### 下载运行
+`clone`项目
+
+```shell
+git clone https://github.com/waiwai948/sakura-bili.git
+# 开启后端
+cd sakura-bili/sakura-koa
+npm install
+npm run dev
+
+# 开启前端
+cd sakura-bili/sakura-vue
+npm install
+npm run dev
+```
