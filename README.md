@@ -72,11 +72,26 @@ src
 ├── header  //头部组件
 ├── content  // 内容组件
 │   ├── banner // 轮播组件相关
+│   │   ├── b-banner-list.vue
+│   │   └── b-banner.vue
 │   ├── contents // 主体内容组件相关
+│   │   ├── b-content-body.vue
+│   │   ├── b-content-list.vue
+│   │   ├── b-content-rank-body.vue
+│   │   └── b-content-rank.vue
 │   ├── live 	// 直播组件相关
+│   │   ├── b-live-rank-list.vue
+│   │   ├── b-live-list.vue
+│   │   ├── b-live-rank-preview.vue
+│   │   └── b-live-rank.vue
 │   ├── popularize	// 推广组件相关
+│   │   ├── b-popularize-list.vue
+│   │   └── b-popularize.vue
 │   └── topVideo 	// 顶部视频组件相关
+│   │   ├── b-top-video-item.vue
+│   │   └── b-top-video.vue
 ├── nav // 側导航组件相关
+├──b-content.vue //content整体框架
 ```
 一共设计 20余组件，分为头部，内容，側导航。尽量将功能细分，降低组件间的耦合，这样确保组件的复用。
 
@@ -91,10 +106,14 @@ src
 ---
 ### 后端部分
 </br>
+
 #### 配置文件
+
 为了根据不同运行环境加载不同配置，在根目录中添加config目录,在config目录下添加 test.js development.js  production.js  index.js
 </br>
+
 		    **index.js**
+		    
 		    
 ```javascript
 const development_env = require('./development')
