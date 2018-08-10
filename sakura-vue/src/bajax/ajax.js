@@ -52,15 +52,29 @@ export const liveApi = {
 // get three days rank
 export const contentrankApi = {
 	contentrank(param) {
-		return axios.post(url.contentrank, param).then((response) => {
+		return $axios.post(url.contentrank, param).then((response) => {
 			return response.data
 		})
 
 	},
 	contentrankweek(param) {
-		return axios.post(url.contentrankweek, param).then((response) => {
+		return $axios.post(url.contentrankweek, param).then((response) => {
 			return response.data
 		})
 
 	}
+}
+
+//get danmu and pvideo
+export const pvideoApi = {
+	pvideo(param) {
+		return $axios.post(url.pvideo, param).then((response) => {
+			return response.data
+		})
+	},
+	danmu(param) {
+		return $axios.post(url.danmu, param).then((response) => {
+			return response.data
+		})
+	}	
 }

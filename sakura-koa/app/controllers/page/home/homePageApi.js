@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { banner, ding, live, rank3, rankbase, popularize, popularizeAd } from './homePageUrl'
+import { banner, ding, live, rank3, rankbase, popularize, popularizeAd, pvideo, danmu } from './homePageUrl'
 
 // 静态方法减少内存损耗
 class homePageApi {
@@ -54,6 +54,24 @@ class homePageApi {
 		let response = await axios.get(url)
 		ctx.body = response.data
 	}
+
+	/**弹幕 */
+	static async danmu(ctx, next) {
+		const body = ctx.request.body
+		let aid = body.aid
+		let url = danmu + aid
+		let response = await axios.get(url)
+		ctx.body = response.data
+	}
+
+	/**预览图 */
+	static async pvideo(ctx, next) {
+		const body = ctx.request.body
+		let aid = body.aid
+		let url = pvideo + aid
+		let response = await axios.get(url)
+		ctx.body = response.data
+	}	
 }
 
 export default homePageApi

@@ -3,7 +3,7 @@
 		<div class="gg-floor-module">
 			<div class="item">
 				<a href="">
-					<img v-lazy="" alt="">
+					<img src="//i0.hdslb.com/bfs/sycp/tmaterial/201807/5b2d773a40edd8b404ae2c855c31345f.jpg" alt="">
 				</a>
 			</div>
 		</div>

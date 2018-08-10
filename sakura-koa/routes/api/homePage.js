@@ -10,5 +10,7 @@ router
 	.get('/rank3', homePageApi.rank3)
 	.post('/contentrank', homePageApi.contentrank)
 	.post('/contentrankweek', homePageApi.contentrankweek)
+	.post('/danmu', homePageApi.danmu)
+	.post('/pvideo', homePageApi.pvideo)
 
 module.exports = router

@@ -96,7 +96,6 @@ export default {
 		// 初始化 转化content的内容
 		initSortItem() {
 			this.sortItem = Array.from(this.content, (item) => {
-				console.log(item)
 				const el  = document.getElementById(item.bili_id)
 				const top = this.getTop(el)
 				return {
@@ -211,7 +210,6 @@ export default {
 			if (this.isDrag) {
 				this.isDrag = false
 				if (this.currentDrag === this.dragId) {
-					console.log(this.currentDrag, this.dragId)
 					this.jumpTo(this.dragId)
 				} else {
 					this.$store.dispatch('reOrder', {

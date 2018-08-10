@@ -4,6 +4,7 @@ import bannerStore from './content_modules/bannerStore'
 import rankStore from './content_modules/rankStore'
 import popularizeStore from './content_modules/popularizeStore'
 import liveStore from './content_modules/liveStore'
+import pdanmuStore from './content_modules/pdanmuStore'
 
 
 // contentId 标示contentKeys 向后端获取rank的data
@@ -75,7 +76,8 @@ export default {
 		bannerStore,
 		rankStore,
 		popularizeStore,
-		liveStore
+		liveStore,
+		pdanmuStore
 	}
 }
 

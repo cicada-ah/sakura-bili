@@ -1,5 +1,10 @@
 // 各分类内容
 export const ding = 'http://www.bilibili.com/index/ding.json'
+// 预览图
+export const pvideo = 'https://api.bilibili.com/pvideo?aid='
+
+// 弹幕
+export const danmu = 'https://api.bilibili.com/x/v2/dm/ajax?aid='
 
 // 轮播图
 export const banner = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=23'
