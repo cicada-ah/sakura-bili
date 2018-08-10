@@ -1,6 +1,11 @@
-![vue-logo.png](https://i.loli.net/2018/08/06/5b6844efb1974.png)
+<div align="center">
+<img src="https://i.loli.net/2018/08/06/5b6844efb1974.png" width = "400" height = "250" alt="vue-logo.png" align=center />
+</div>
+
+***
+
 ## 技术栈
----
+
 前端： vue2  +  vuex  +  vue-cli + ES6/7 + axios + stylus 
 
 后端: koa2 + koa2-plugin + restfulApi + axios
@@ -12,7 +17,7 @@
 
 
 ## 说明
----
+
 >  开发环境 ubuntu 18.04 chrome nodejs 8+
 
 >  这个项目主要是用于学习vue全家桶, 前后端开发流程及线上部署.
@@ -21,11 +26,12 @@
 
 
 ## 项目描述
----
+
 ### 前端部分
 
 #### 项目结构
 </br>
+
 ```shell
 ├── README.md
 ├── build //编任务代码
@@ -45,11 +51,11 @@
 ├── package.json //项目的基本信息
 ├── src //vue文件
 └── static //静态资源（图片相关）
-
 ```
 
 #### src结构
 </br>
+
 ```shell
 src
 ├── assets          // 资源目录 图片，样式，iconfont
@@ -66,11 +72,26 @@ src
 ├── header  //头部组件
 ├── content  // 内容组件
 │   ├── banner // 轮播组件相关
+│   │   ├── b-banner-list.vue
+│   │   └── b-banner.vue
 │   ├── contents // 主体内容组件相关
+│   │   ├── b-content-body.vue
+│   │   ├── b-content-list.vue
+│   │   ├── b-content-rank-body.vue
+│   │   └── b-content-rank.vue
 │   ├── live 	// 直播组件相关
+│   │   ├── b-live-rank-list.vue
+│   │   ├── b-live-list.vue
+│   │   ├── b-live-rank-preview.vue
+│   │   └── b-live-rank.vue
 │   ├── popularize	// 推广组件相关
+│   │   ├── b-popularize-list.vue
+│   │   └── b-popularize.vue
 │   └── topVideo 	// 顶部视频组件相关
+│   │   ├── b-top-video-item.vue
+│   │   └── b-top-video.vue
 ├── nav // 側导航组件相关
+├──b-content.vue //content整体框架
 ```
 一共设计 20余组件，分为头部，内容，側导航。尽量将功能细分，降低组件间的耦合，这样确保组件的复用。
 
@@ -85,10 +106,15 @@ src
 ---
 ### 后端部分
 </br>
+
 #### 配置文件
+
 为了根据不同运行环境加载不同配置，在根目录中添加config目录,在config目录下添加 test.js development.js  production.js  index.js
 </br>
+
 		    **index.js**
+		    
+		    
 ```javascript
 const development_env = require('./development')
 const production_env = require('./production')
@@ -101,10 +127,11 @@ const configs = {
 module.exports = configs[process.env.NODE_ENV || 'development']
 ```
 #### 为API接口配置路由
----
+
 分离**接口层**和**逻辑层**。
 创建app目录，根据请求类型，分类好逻辑层API
 接口层统一创建在routes路由下。
+
 
 ```javascript
 // routes/api/homePage.js
@@ -123,9 +150,11 @@ router
 
 module.exports = router
 ```
+
 </br>
 通过**index.js**统一导出路由
 </br>
+
 ```javascript
 const router = require('koa-router')()
 const homePage = require('./homePage')
@@ -134,6 +163,7 @@ router.use('/home', homePage.routes(), homePage.allowedMethods())
 
 module.exports = router
 ```
+
 目前是三级路由，/api,/home,/honePage。
 </br>**资源符定位资源，HTTP动词描述操作，状态码表示结果。**
 
@@ -155,6 +185,7 @@ module.exports = router
 前后端都部署在阿里云的虚拟机上，由于没有用node,渲染页面，所以分开部署node和打包后的dist
 
 `前端`如果需要本地预览，可以修改`webpack.base.conf.js`
+
 ```javascript
 output: {
     path: config.build.assetsRoot,
@@ -162,17 +193,21 @@ output: {
     filename: '[name].js'
 }
 ```
+
 这样生产相对资源路径，可以直接访问。如果线上发布，则直接打包即可。
 
 `后端`node.js 通过 `forever`把进程挂在服务器上。
+
 ```shell
 cd node.js路径
 NODE_ENV = production forever start ./bin/www
 ```
+
 通过 `forever list` 可以查看是否成功...
 
 #### `nginx服务器配置`
 修改 nginx.conf
+
 ```shell
 server {
 	listen xx #端口
@@ -251,3 +286,19 @@ server {
 1. 图片是从官方api接口获取，会限制请求来源。可以通过如下几种办法。
     1. 服务器端去请求，在从服务器端获取。
     2. 设置< head > 的 < meta > 为 no-referer 隐藏请求源。
+    
+### 下载运行
+`clone`项目
+
+```shell
+git clone https://github.com/waiwai948/sakura-bili.git
+# 开启后端
+cd sakura-bili/sakura-koa
+npm install
+npm run dev
+
+# 开启前端
+cd sakura-bili/sakura-vue
+npm install
+npm run dev
+```
